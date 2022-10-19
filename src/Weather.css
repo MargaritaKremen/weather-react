@@ -1,0 +1,58 @@
+.Weather {
+    background-image: linear-gradient(
+      0deg,
+      #c5e2ea 23%,
+      #8fbfcb 55%,
+      #638b95 88%
+    );
+    box-shadow: rgba(177, 161, 173, 0.493) 0px 8px 8px 0;
+    padding: 20px;
+    height: 500px;
+    border: 1px solid #5d779b;
+    border-radius: 5px;
+  }
+  .application-body-wrapper {
+    max-width: 800px;
+  
+    margin: 30px auto;
+  }
+  p {
+    padding: 2em;
+    font-size: 15pt;
+  }
+  h1 {
+    font-weight: 600;
+    font-size: 50pt;
+    padding-bottom: 0;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-top: 1em;
+  }
+  
+  .formSearch {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+  .search-field {
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-size: 15pt;
+  }
+  .search-button {
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    margin-left: 1em;
+    font-size: 15pt;
+  }
+  h5 {
+    text-align: center;
+    padding: 1em;
+    color: #638b95;
+  }
+  
