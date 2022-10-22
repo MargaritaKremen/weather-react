@@ -8,8 +8,13 @@ export default function Weather() {
       <div className="row">
         <div className="col-9">
           <Search />
-        </div>
-      </div>
+          <h5>        
+            <span >
+             <a href = "https://github.com/MargaritaKremen/weather-react" class = "color-link" rel="noopener noreferrer" target="_blank"> Open-source code</a>
+            </span> by Margarita Kozlova
+          </h5>
+        </div>        
+      </div>      
     </div>
   );
 }

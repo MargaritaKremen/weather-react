@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { HalfMalf } from "react-spinner-animated";
+
+import 'react-spinner-animated/dist/index.css'
+// eslint-disable-next-line
+class MyComponent extends React.Component {
+  render() {
+    return <HalfMalf text={"Loading..."} bgColor={"#F0A500"} 
+    center={false} width={"150px"} height={"150px"}/>
+  }
+}
+
 
 export default function WeatherSearch() {
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
+  
 
   function displayWeather(response) {
     console.log(response.data.name);
@@ -55,13 +67,23 @@ export default function WeatherSearch() {
           <li>Temperature: {Math.round(weather.temperature)}°C</li>
           <li>Description: {weather.description}</li>
           <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind}km/h</li>
-          
+          <li>Wind: {weather.wind}km/h</li>          
         </ul> 
         <img src={weather.icon} alt={weather.description} />
       </div>
     );
   } else {
-    return form;
+    return (
+      <div> {form}
+      <h3>Enter a city... <HalfMalf /> </h3>
+      <ul>
+          <li> Temperature: </li>
+          <li> Description: </li> 
+          <li> Humidity: </li>
+          <li> Wind: </li> 
+      </ul>
+      <img className = "icon"  width = "84" src = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/394/original/01d.png?1658581877" alt = "" />
+  </div>
+  )
   }
 }

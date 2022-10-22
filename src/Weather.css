@@ -6,16 +6,14 @@
       #638b95 88%
     );
     box-shadow: rgba(177, 161, 173, 0.493) 0px 8px 8px 0;
-    padding: 20px;
+    margin: 30px 30px;
+    padding: 30px;
     height: 500px;
     border: 1px solid #5d779b;
     border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
   }
-  .application-body-wrapper {
-    max-width: 800px;
   
-    margin: 30px auto;
-  }
   p {
     padding: 2em;
     font-size: 15pt;
@@ -51,8 +49,24 @@
     font-size: 15pt;
   }
   h5 {
-    text-align: center;
-    padding: 1em;
-    color: #638b95;
+   
+    bottom: 3em;
+    left: 1em;
+    text-align: left;
+    color:  #638b95;
   }
+  .color-link { 
+    color: #fdd020;   
+    text-decoration: none;
+  }
+  .color-link:hover {
+    color:#e2ebee; /* Цвет ссылки при наведении на нее курсора мыши */  
+    text-decoration: underline; /* Добавляем подчеркивание */
+  }
+  .icon {
+    margin-right: 5px;
+    height: "42";
+    width: "42";
+  }
+ 
   
