@@ -1,6 +1,14 @@
 import React from "react";
 import "./Weather.css";
 import Search from "./Search";
+import WebFont from 'webfontloader';
+useEffect(() => {
+  WebFont.load({
+    google: {
+      families: ['Montserrat']
+    }
+  });
+ }, []);
 
 export default function Weather() {
   return (
