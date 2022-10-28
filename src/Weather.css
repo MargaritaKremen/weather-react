@@ -7,6 +7,7 @@
     );
     box-shadow: rgba(177, 161, 173, 0.493) 0px 8px 8px 0;
     margin: 30px 30px;
+    max-width: 70%;
     padding: 30px;
     height: 500px;
     border: 1px solid #5d779b;
@@ -18,16 +19,17 @@
     padding: 2em;
     font-size: 15pt;
   }
-  h1 {
-    font-weight: 600;
-    font-size: 50pt;
-    padding-bottom: 0;
-    font-family: "Montserrat", sans-serif;
+ 
+  h1{
+    margin: 1em, 1em auto;
+    font-size: 42pt;
   }
-  
   h2 {
-    text-align: center;
-    margin-top: 1em;
+    margin: 1em;
+    font-size: 36pt;
+  }
+  h3 {
+    font-size: 22pt;
   }
   
   .formSearch {
@@ -48,11 +50,8 @@
     margin-left: 1em;
     font-size: 15pt;
   }
-  h5 {
-   
-    bottom: 3em;
-    left: 1em;
-    text-align: left;
+  h5 { 
+    margin: 30px 30px;
     color:  #638b95;
   }
   .color-link { 
@@ -64,9 +63,18 @@
     text-decoration: underline; /* Добавляем подчеркивание */
   }
   .icon {
-    margin-right: 5px;
-    height: "42";
-    width: "42";
+    height: "52";
+    width: "52";
   }
+  .temperature{
+
+  }
+  .unit{
+
+  }
+
+
+
+  
  
   

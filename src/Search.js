@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { HalfMalf } from "react-spinner-animated";
+import "./Weather.css";
 
 import 'react-spinner-animated/dist/index.css'
 // eslint-disable-next-line
@@ -12,11 +13,11 @@ class MyComponent extends React.Component {
 }
 
 
-export default function WeatherSearch() {
+export default function WeatherSearch(props) {
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
-  
+  console.log(props.defaultCity);
 
   function displayWeather(response) {
     console.log(response.data.name);
@@ -32,6 +33,7 @@ export default function WeatherSearch() {
   }
 
   function handleSubmit(event) {
+  
     event.preventDefault();
     let apiKey = "f3a4c7fd1572e38d1a0b0f724e0e0218";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -43,7 +45,6 @@ export default function WeatherSearch() {
   }
 
   let form = (
-    <div className="Search">
       <form onSubmit={handleSubmit} className="formSearch">
         <input
           type="search"
@@ -55,35 +56,49 @@ export default function WeatherSearch() {
           Search
         </button>
       </form>
-    </div>
   );
 
   if (loaded) {
     return (
       <div>
-        {form}
-        <h1>{weather.name}</h1>
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind}km/h</li>          
-        </ul> 
-        <img src={weather.icon} alt={weather.description} />
-      </div>
+        <div className="Weather">
+          <div className="row">
+            <div className="col-9">
+               {form}
+                <div className="col-lg-6 col-md-6 col-sm-8">
+                  <div className="d-flex justify-content-end">  
+                        <h1>{weather.name}</h1>
+                          <h2>
+                            <img className="icon" src={weather.icon} alt={weather.description} /> 
+                               {Math.round(weather.temperature)}
+                                 <span >°C</span>
+                                  <h3>{weather.description}</h3>
+                          </h2>
+                    </div>
+                </div>
+                 
+                <div> 
+                  <ul>
+                    
+                    <li>Humidity: {weather.humidity}%</li>
+                    <li>Wind: {weather.wind}km/h</li>          
+                  </ul> 
+                 
+                </div> 
+              </div> 
+              
+          </div>        
+         </div>      
+        </div>
+      
     );
   } else {
+    
+    let apiKey = "f3a4c7fd1572e38d1a0b0f724e0e0218";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayWeather);
     return (
-      <div> {form}
-      <h3>Enter a city... <HalfMalf /> </h3>
-      <ul>
-          <li> Temperature: </li>
-          <li> Description: </li> 
-          <li> Humidity: </li>
-          <li> Wind: </li> 
-      </ul>
-      <img className = "icon"  width = "84" src = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/394/original/01d.png?1658581877" alt = "" />
-  </div>
+      <div> {form} </div>
   )
   }
 }
