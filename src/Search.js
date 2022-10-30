@@ -62,7 +62,7 @@ export default function WeatherSearch(props) {
       </form>
       
   );
-<FormattedDate date={weather.date}/>
+
 
   if (loaded) {
     
@@ -73,6 +73,7 @@ export default function WeatherSearch(props) {
           <div className="col-9">
             {form} 
               <h1>{weather.name}</h1>
+              <FormattedDate date={weather.date}/>
                <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-8">
                   <div className="temperature-container d-flex justify-content-end">                      
