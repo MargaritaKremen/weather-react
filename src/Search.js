@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { HalfMalf } from "react-spinner-animated";
+import FormattedDate from "./FormattedDate";
+
 import "./Weather.css";
 
+/*
+import { HalfMalf } from "react-spinner-animated";
 import 'react-spinner-animated/dist/index.css'
+import Weather from "./Weather";
 // eslint-disable-next-line
 class MyComponent extends React.Component {
   render() {
@@ -12,7 +16,7 @@ class MyComponent extends React.Component {
   }
 }
 
-
+*/
 export default function WeatherSearch(props) {
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
@@ -20,10 +24,10 @@ export default function WeatherSearch(props) {
   console.log(props.defaultCity);
 
   function displayWeather(response) {
-    console.log(response.data.name);
     setLoaded(true);
     setWeather({
       name: response.data.name,
+      date: new Date(response.data.time * 1000),
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -56,41 +60,41 @@ export default function WeatherSearch(props) {
           Search
         </button>
       </form>
+      
   );
+<FormattedDate date={weather.date}/>
 
   if (loaded) {
+    
+    console.log(weather);
     return (
       <div>
-        <div className="Weather">
-          <div className="row">
-            <div className="col-9">
-               {form}
+        <div className="Weather">         
+          <div className="col-9">
+            {form} 
+              <h1>{weather.name}</h1>
+               <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-8">
-                  <div className="d-flex justify-content-end">  
-                        <h1>{weather.name}</h1>
-                          <h2>
-                            <img className="icon" src={weather.icon} alt={weather.description} /> 
-                               {Math.round(weather.temperature)}
-                                 <span >°C</span>
-                                  <h3>{weather.description}</h3>
-                          </h2>
-                    </div>
+                  <div className="temperature-container d-flex justify-content-end">                      
+                           
+                      <img className="icon" src={weather.icon} alt={weather.description} />                             
+                          <span className="temperature">
+                             {Math.round(weather.temperature)}
+                          </span>
+                          <span className="unit">°C</span>                               
+                  </div>
+                 </div>
                 </div>
-                 
+              <h3>{weather.description}</h3>
                 <div> 
-                  <ul>
-                    
+                  <ul>                    
                     <li>Humidity: {weather.humidity}%</li>
                     <li>Wind: {weather.wind}km/h</li>          
-                  </ul> 
-                 
+                  </ul>                  
                 </div> 
-              </div> 
-              
-          </div>        
-         </div>      
-        </div>
-      
+          </div>              
+        </div>        
+      </div>         
     );
   } else {
     
