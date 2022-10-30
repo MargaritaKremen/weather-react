@@ -21,13 +21,14 @@ export default function WeatherSearch(props) {
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
-  console.log(props.defaultCity);
+  
 
   function displayWeather(response) {
     setLoaded(true);
+    console.log(response.data.dt );
     setWeather({
       name: response.data.name,
-      date: new Date(response.data.time * 1000),
+      date: new Date(response.data.dt * 1000),
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -66,7 +67,7 @@ export default function WeatherSearch(props) {
 
   if (loaded) {
     
-    console.log(weather);
+   // console.log(weather);
     return (
       <div>
         <div className="Weather">         
