@@ -42,7 +42,7 @@ export default function WeatherSearch(props) {
   function handleSubmit(event) {
   
     event.preventDefault();
-    let apiKey = "97bed167ec49bff56e6c1b63daef9c86";
+    let apiKey = "t201833cf0oa3a813cc38bf42a4223bb";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
   }
@@ -80,8 +80,8 @@ export default function WeatherSearch(props) {
                <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-8">
                   <div className="temperature-container d-flex justify-content-end">                      
-                  <WeatherIcon code={props.data.icon} size={52} />   
-                      <img className="icon" src={weather.icon} alt={weather.description} />                             
+                  <WeatherIcon code={weather.icon} size={52} />   
+                                                 
                           <span className="temperature">
                              {Math.round(weather.temperature)}
                           </span>
@@ -103,7 +103,7 @@ export default function WeatherSearch(props) {
     );
   } else {
     console.log(weather);
-    let apiKey = "97bed167ec49bff56e6c1b63daef9c86";
+    let apiKey = "t201833cf0oa3a813cc38bf42a4223bb";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
     
     axios.get(apiUrl).then(displayWeather);
