@@ -4,6 +4,7 @@ import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
+import logo from './logo.gif'
 
 /*
 import { HalfMalf } from "react-spinner-animated";
@@ -52,14 +53,14 @@ export default function WeatherSearch(props) {
   }
 
   let form = (
-      <form onSubmit={handleSubmit} className="formSearch">
+      <form onSubmit={handleSubmit} className="formSearch ">
         <input
           type="search"
-          placeholder="Enter a city.."
+          placeholder="   Enter a city.."
           onChange={updateCity}
-          className="search-field"
+          className="search-field col-9"
         />
-        <button type="Submit" className="search-button">
+        <button type="Submit" className="search-button col-3">
           Search
         </button>
       </form>
@@ -72,32 +73,37 @@ export default function WeatherSearch(props) {
     console.log(weather);
     return (
       <div>
-        <div className="Weather">         
-          <div className="col-9">
+        <div className="Weather"> 
             {form} 
-              <h1>{weather.name}</h1>
-              <FormattedDate date={weather.date}/>
-               <div className="row">
-                <div className="col-lg-6 col-md-6 col-sm-8">
-                  <div className="temperature-container d-flex justify-content-end">                      
-                  <WeatherIcon code={weather.icon} size={52} />   
-                                                 
-                          <span className="temperature">
-                             {Math.round(weather.temperature)}
-                          </span>
-                          <span className="unit">°C</span>                               
+            <div className="row">
+                <div className="col-6">
+                  <h1>{weather.name}</h1>
+                  <FormattedDate date={weather.date}/>
+                  
+                    <div className="col-lg-4">
+                        <div className="temperature-container d-flex justify-content">                      
+                        <WeatherIcon code={weather.icon} size={52} />                                                    
+                              <span className="temperature">
+                                {Math.round(weather.temperature)}
+                              </span>
+                              <span className="unit">°C</span>                               
+                        </div>
+                    </div>                
+                      <h3>{weather.description}</h3>
+                        <div> 
+                          <ul>                    
+                            <li>Humidity: {weather.humidity}%</li>
+                            <li>Wind: {weather.wind}km/h</li>          
+                          </ul>                  
+                        </div> 
                   </div>
-                 </div>
-                </div>
-              <h3>{weather.description}</h3>
-                <div> 
-                  <ul>                    
-                    <li>Humidity: {weather.humidity}%</li>
-                    <li>Wind: {weather.wind}km/h</li>          
-                  </ul>                  
-                </div> 
-          </div>     
-          <WeatherForecast coordinates={weather.coordinates} city={weather.name}/>         
+
+                  <div className="col-6">
+                    <img src={logo} className="logo" alt="loading..." />
+                  </div>
+            </div>
+
+        <WeatherForecast coordinates={weather.coordinates} city={weather.name}/>         
         </div>        
       </div>         
     );

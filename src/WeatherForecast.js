@@ -19,6 +19,7 @@ export default function WeatherForecast(props) {
   if (loaded) {
     return (
       <div className="WeatherForecast ">
+        <div className="row">
         {forecast.map(function (day, index) {
           if (index < 5) {
             return (
@@ -30,6 +31,7 @@ export default function WeatherForecast(props) {
             return null;
           }
         })}
+      </div>
       </div>
     );
   } else {
