@@ -76,20 +76,21 @@ export default function WeatherSearch(props) {
         <div className="Weather"> 
             {form} 
             <div className="row">
-                <div className="col-6">
+                <div className="col-6 text-center">
+                  
                   <h1>{weather.name}</h1>
                   <FormattedDate date={weather.date}/>
                   
-                    <div className="col-lg-4">
-                        <div className="temperature-container d-flex justify-content">                      
-                        <WeatherIcon code={weather.icon} size={52} />                                                    
+                    
+                        <div className="temperature-container d-flex justify-content-center">                      
+                        <WeatherIcon code={weather.icon} size={52} color={'#dce9ef'}/>                                                    
                               <span className="temperature">
                                 {Math.round(weather.temperature)}
                               </span>
                               <span className="unit">°C</span>                               
                         </div>
-                    </div>                
-                      <h3>{weather.description}</h3>
+                                 
+                      <h4 className="text-capitalize" >{weather.description}</h4>
                         <div> 
                           <ul>                    
                             <li>Humidity: {weather.humidity}%</li>

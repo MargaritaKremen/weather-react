@@ -1,16 +1,18 @@
 .Weather {
     background-image: linear-gradient(
       0deg,
-      #c5e2ea 23%,
-      #8fbfcb 55%,
-      #638b95 88%
+      #dce9ef 13%,      
+      #6972a6 55%,
+      #333876 88%
     );
     box-shadow: rgba(177, 161, 173, 0.493) 0px 8px 8px 0;
-    margin: 30px 30px;
+    margin: 30px 30px auto;
     max-width: 70%;
     padding: 30px;
-    height: 500px;
-    border: 1px solid #5d779b;
+    height: 600px;
+    max-width: 800px;
+    margin: 60px auto;
+    border: 1px solid #6972a6;
     border-radius: 5px;
     font-family: "Montserrat", sans-serif;
   }
@@ -23,13 +25,18 @@
   h1{
     margin-top: 1em;
     font-size: 42pt;
+    color: #dce9ef;
   }
-  h2 {
-   
+  h2 {   
+    color: #dce9ef;
     font-size: 36pt;
   }
   h3 {
+    color: #dce9ef;
     font-size: 22pt;
+  }
+  h4 {
+    color: #dce9ef;
   }
   
   .formSearch {
@@ -76,15 +83,32 @@
   }
   .temperature-container {    
     align-items: center;
+    color: #fdd020;
   }
 
 .logo{
   max-width:100%;
-  margin-top:4em;
-  
-  
+  margin-top:4em;  
 }
-
-  
+.unit {
+  color: #fdd020;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: normal;
+  position: relative;
+  line-height: 1;
+  top: -14px; 
  
-  
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #dce9ef;
+  font-size: 16px;
+  line-height: 20px;
+  list-style: none;
+}

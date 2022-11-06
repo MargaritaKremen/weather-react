@@ -21,8 +21,10 @@ console.log(day);
     minutes = `0${minutes}`;
   }
   return (
-    <span>
+    <div>
+      <h4>
       {day} {hours}:{minutes}
-    </span>
+      </h4>
+    </div>
   );
 }
