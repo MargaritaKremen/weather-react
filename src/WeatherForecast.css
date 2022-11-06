@@ -29,4 +29,8 @@
     display: block;
     margin: 20px auto;
   }
-  
+  @media(max-width:576px){
+    .WeatherForecast {
+      display: block;
+    }
+  }
